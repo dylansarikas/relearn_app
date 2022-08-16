@@ -14,5 +14,9 @@ class PhotosController < ApplicationController
         render json: photo.as_json
     end
 
+    def show
+        photo = Photo.find_by(id: params[:id])
+        render json: photo.as_json
+    end
 
 end

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   #Hello
   get "/photos" => "photos#index"
   post "/photos" => "photos#create"
+  get "/photos/:id" => "photos#show"
 end
