@@ -19,4 +19,13 @@ class PhotosController < ApplicationController
         render json: photo.as_json
     end
 
+    def update
+        photo = Photo.find_by(id: params[:id])
+        photo.name = params[:name] || photo.name
+        photo.width = params[:width] || photo.width
+        photo.height = params[:height] || photo.height
+        photo.save
+        render json: photo.as_json
+    end
+
 end
