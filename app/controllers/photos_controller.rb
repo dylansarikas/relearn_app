@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
     def index
-        photos = Photo.all
-        render json: photos.as_json
+        photo = Photo.all
+        render json: photo.as_json
     end
 
     def create
@@ -27,5 +27,12 @@ class PhotosController < ApplicationController
         photo.save
         render json: photo.as_json
     end
+
+    def destroy
+        photo = Photo.find_by(id: params[:id])
+        photo.destroy
+        render json: {message: "Photo destroyed successfully."}
+    end
+
 
 end
